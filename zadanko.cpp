@@ -21,5 +21,20 @@ bool czynniki(int liczba)
 } 
 int main ()
 {
-    cout<<czynnik<< "\n"; 
+    ifstream plik;
+    plik.open("liczby.txt");
+    ofstream plik2;
+    plik2.open("wyniki_liczby.txt");
+    int liczba;
+    int zad = 0;
+ 
+    while(!plik.eof())
+    {
+        plik>>liczba;
+        zad+=czynniki(liczba);
+    }
+    cout<<"Wynik: "<<zad<<endl;
+    plik.close();
+    plik2.close();
+    return 0;
 }
